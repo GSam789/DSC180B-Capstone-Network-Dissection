@@ -1,0 +1,166 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 12 files
+Detected 0 issues that require attention
+--------------------------------------------------------------------------------
+================================================================================
+Detailed log follows:
+
+================================================================================
+================================================================================
+Input tree: 'adversarial_robustness/'
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'adversarial_robustness/plot_helpers.py'
+ outputting to 'adversarial_robustness_v2/plot_helpers.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'adversarial_robustness/cnns.py'
+ outputting to 'adversarial_robustness_v2/cnns.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'adversarial_robustness/score.py'
+ outputting to 'adversarial_robustness_v2/score.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'adversarial_robustness/dataset.py'
+ outputting to 'adversarial_robustness_v2/dataset.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'adversarial_robustness/__init__.py'
+ outputting to 'adversarial_robustness_v2/__init__.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'adversarial_robustness/lecun_lcn.py'
+ outputting to 'adversarial_robustness_v2/lecun_lcn.py'
+--------------------------------------------------------------------------------
+
+17:8: INFO: Added keywords to args of function 'tf.convert_to_tensor'
+19:14: INFO: Added keywords to args of function 'tf.nn.conv2d'
+19:14: INFO: Renamed keyword argument for tf.nn.conv2d from filter to filters
+35:21: INFO: Added keywords to args of function 'tf.nn.conv2d'
+35:21: INFO: Renamed keyword argument for tf.nn.conv2d from filter to filters
+40:23: INFO: Added keywords to args of function 'tf.reduce_mean'
+59:11: INFO: Added keywords to args of function 'tf.convert_to_tensor'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'adversarial_robustness/neural_network.py'
+ outputting to 'adversarial_robustness_v2/neural_network.py'
+--------------------------------------------------------------------------------
+
+32:9: INFO: `name` passed to `name_scope`. Because you may be re-entering an existing scope, it is not safe to convert automatically,  the v2 name_scope does not support re-entering scopes by name.
+
+32:9: INFO: Renamed 'tf.name_scope' to 'tf.compat.v1.name_scope'
+33:15: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+34:15: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+35:22: INFO: Renamed 'tf.placeholder_with_default' to 'tf.compat.v1.placeholder_with_default'
+68:9: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+84:11: INFO: Added keywords to args of function 'tf.reduce_mean'
+84:26: INFO: Changing labels arg of tf.nn.softmax_cross_entropy_with_logits to tf.stop_gradient(labels). Please check this transformation.
+
+89:11: INFO: Added keywords to args of function 'tf.argmax'
+99:25: INFO: Added keywords to args of function 'tf.reduce_logsumexp'
+99:61: INFO: Renamed keyword argument for tf.reduce_logsumexp from keep_dims to keepdims
+107:11: INFO: Added keywords to args of function 'tf.gradients'
+116:11: INFO: Added keywords to args of function 'tf.gradients'
+121:11: INFO: Added keywords to args of function 'tf.reduce_mean'
+131:21: INFO: Added keywords to args of function 'tf.reduce_sum'
+131:55: INFO: Renamed 'tf.trainable_variables' to 'tf.compat.v1.trainable_variables'
+136:47: INFO: Renamed 'tf.trainable_variables' to 'tf.compat.v1.trainable_variables'
+149:11: INFO: Added keywords to args of function 'tf.gradients'
+154:11: INFO: Added keywords to args of function 'tf.reduce_sum'
+168:11: INFO: Added keywords to args of function 'tf.gradients'
+172:11: INFO: Added keywords to args of function 'tf.reduce_mean'
+173:18: INFO: Added keywords to args of function 'tf.argmax'
+181:9: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+187:9: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+197:9: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+211:9: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+226:9: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+232:9: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+280:23: INFO: Added keywords to args of function 'tf.reduce_mean'
+280:38: INFO: Changing labels arg of tf.nn.softmax_cross_entropy_with_logits to tf.stop_gradient(labels). Please check this transformation.
+
+296:9: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+297:15: INFO: Renamed 'tf.global_variables_initializer' to 'tf.compat.v1.global_variables_initializer'
+314:16: INFO: Added keywords to args of function 'tf.reduce_max'
+314:46: INFO: Renamed keyword argument for tf.reduce_max from keep_dims to keepdims
+315:30: INFO: Changed tf.to_float call to tf.cast(..., dtype=tf.float32).
+316:22: INFO: Added keywords to args of function 'tf.reduce_sum'
+316:47: INFO: Renamed keyword argument for tf.reduce_sum from keep_dims to keepdims
+318:17: INFO: Added keywords to args of function 'tf.gradients'
+326:21: INFO: Added keywords to args of function 'tf.reduce_mean'
+326:36: INFO: Changing labels arg of tf.nn.softmax_cross_entropy_with_logits to tf.stop_gradient(labels). Please check this transformation.
+
+329:20: INFO: Added keywords to args of function 'tf.gradients'
+360:18: INFO: Renamed 'tf.train.AdamOptimizer' to 'tf.compat.v1.train.AdamOptimizer'
+372:9: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+374:15: INFO: Renamed 'tf.global_variables_initializer' to 'tf.compat.v1.global_variables_initializer'
+398:9: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+460:9: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+473:11: INFO: Renamed 'tf.get_default_graph' to 'tf.compat.v1.get_default_graph'
+474:8: INFO: Renamed 'tf.GraphKeys' to 'tf.compat.v1.GraphKeys'
+480:15: INFO: Renamed 'tf.global_variables_initializer' to 'tf.compat.v1.global_variables_initializer'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'adversarial_robustness/utils.py'
+ outputting to 'adversarial_robustness_v2/utils.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'adversarial_robustness/datasets/mnist.py'
+ outputting to 'adversarial_robustness_v2/datasets/mnist.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'adversarial_robustness/datasets/__init__.py'
+ outputting to 'adversarial_robustness_v2/datasets/__init__.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'adversarial_robustness/datasets/svhn.py'
+ outputting to 'adversarial_robustness_v2/datasets/svhn.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'adversarial_robustness/datasets/notmnist.py'
+ outputting to 'adversarial_robustness_v2/datasets/notmnist.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
