@@ -13,12 +13,12 @@ train_loader, valid_loader = get_data()
 # Train Data
 optimizer = optim.Adam(model.parameters(), lr=0.0001)
 loss = nn.CrossEntropyLoss()
-for _ in range(epochs):
+for _ in range(10):
     train(model, train_loader, optimizer, loss, 'cpu')
 print("Training Done!")
 validate(model, valid_loader, loss, 'cpu')
 
 # Save Model
 filename = "resnet18_cifar10"
-pickle.dump(model, open("resnet18_cifar10", "wb"))
+pickle.dump(model, open(filename, "wb"))
 print(f"Model saved on {filename}")
