@@ -9,3 +9,5 @@ Files:
 - train.py: train and test functions
 - main.py: Trains and tests the selected model on CIFAR10 and saves the result in the models/ folder
 - test.py: Tests one of the specified model in the models/ folder on the CIFAR10 test data
+
+Simply run ```python3 test.py``` to test the ResNet-18 model (with 0.2 dropout rate) on the CIFAR-10 test data.
