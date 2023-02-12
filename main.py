@@ -13,7 +13,7 @@ import torch.optim as optim
 # model = resnet18.ResNet(img_channels = 3, num_layers = 18, block = resnet18.BasicBlock, num_classes = 10)
 
 # ResNet with dropout
-model = dropout.ResNet(img_channels = 3, num_layers = 18, block = dropout.BasicBlock, num_classes = 10)
+model = dropout.ResNet(img_channels = 3, num_layers = 18, block = dropout.BasicBlock, num_classes = 10, dropout_rate = 0.2)
 train_loader, valid_loader = get_data()
 
 # Train Data
