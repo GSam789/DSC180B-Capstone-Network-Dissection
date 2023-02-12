@@ -5,7 +5,7 @@ from torch import Tensor
 from typing import Type
 
 class BasicBlock(nn.Module):
-    def __init__(self, in_channels: int, out_channels: int, stride: int = 1, expansion: int = 1, downsample: nn.Module = None) -> None:
+    def __init__(self, in_channels: int, out_channels: int, stride: int = 1, expansion: int = 1, downsample: nn.Module = None, dropout_rate: float = 0.2) -> None:
         super(BasicBlock, self).__init__()
         # Multiplicative factor for the subsequent conv2d layer's output channels.
         # It is 1 for ResNet18 and ResNet34.
@@ -21,7 +21,7 @@ class BasicBlock(nn.Module):
         )
         self.bn1 = nn.BatchNorm2d(out_channels)
         self.relu = nn.ReLU(inplace=True)
-        self.drop = nn.Dropout(p = 0.5)
+        self.drop = nn.Dropout(p = dropout_rate)
         self.conv2 = nn.Conv2d(
             out_channels, 
             out_channels*self.expansion, 
@@ -47,7 +47,7 @@ class BasicBlock(nn.Module):
         return  out
     
 class ResNet(nn.Module):
-    def __init__(self, img_channels: int, num_layers: int, block: Type[BasicBlock], num_classes: int  = 1000) -> None:
+    def __init__(self, img_channels: int, num_layers: int, block: Type[BasicBlock], num_classes: int  = 1000, dropout_rate: float = 0.2) -> None:
         super(ResNet, self).__init__()
         if num_layers == 18:
             # The following `layers` list defines the number of `BasicBlock` 
@@ -69,7 +69,7 @@ class ResNet(nn.Module):
         )
         self.bn1 = nn.BatchNorm2d(self.in_channels)
         self.relu = nn.ReLU(inplace=True)
-        self.drop = nn.Dropout(p = 0.5)
+        self.drop = nn.Dropout(p = dropout_rate)
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
         self.layer1 = self._make_layer(block, 64, layers[0])
         self.layer2 = self._make_layer(block, 128, layers[1], stride=2)
