@@ -12,7 +12,7 @@ Input tree: 'adversarial_robustness/'
 ================================================================================
 --------------------------------------------------------------------------------
 Processing file 'adversarial_robustness/plot_helpers.py'
- outputting to 'adversarial_robustness_v2/plot_helpers.py'
+ outputting to 'adversarial_robustness_v3/plot_helpers.py'
 --------------------------------------------------------------------------------
 
 
@@ -20,7 +20,7 @@ Processing file 'adversarial_robustness/plot_helpers.py'
 
 --------------------------------------------------------------------------------
 Processing file 'adversarial_robustness/cnns.py'
- outputting to 'adversarial_robustness_v2/cnns.py'
+ outputting to 'adversarial_robustness_v3/cnns.py'
 --------------------------------------------------------------------------------
 
 
@@ -28,7 +28,7 @@ Processing file 'adversarial_robustness/cnns.py'
 
 --------------------------------------------------------------------------------
 Processing file 'adversarial_robustness/score.py'
- outputting to 'adversarial_robustness_v2/score.py'
+ outputting to 'adversarial_robustness_v3/score.py'
 --------------------------------------------------------------------------------
 
 
@@ -36,7 +36,7 @@ Processing file 'adversarial_robustness/score.py'
 
 --------------------------------------------------------------------------------
 Processing file 'adversarial_robustness/dataset.py'
- outputting to 'adversarial_robustness_v2/dataset.py'
+ outputting to 'adversarial_robustness_v3/dataset.py'
 --------------------------------------------------------------------------------
 
 
@@ -44,7 +44,7 @@ Processing file 'adversarial_robustness/dataset.py'
 
 --------------------------------------------------------------------------------
 Processing file 'adversarial_robustness/__init__.py'
- outputting to 'adversarial_robustness_v2/__init__.py'
+ outputting to 'adversarial_robustness_v3/__init__.py'
 --------------------------------------------------------------------------------
 
 
@@ -52,7 +52,7 @@ Processing file 'adversarial_robustness/__init__.py'
 
 --------------------------------------------------------------------------------
 Processing file 'adversarial_robustness/lecun_lcn.py'
- outputting to 'adversarial_robustness_v2/lecun_lcn.py'
+ outputting to 'adversarial_robustness_v3/lecun_lcn.py'
 --------------------------------------------------------------------------------
 
 17:8: INFO: Added keywords to args of function 'tf.convert_to_tensor'
@@ -66,7 +66,7 @@ Processing file 'adversarial_robustness/lecun_lcn.py'
 
 --------------------------------------------------------------------------------
 Processing file 'adversarial_robustness/neural_network.py'
- outputting to 'adversarial_robustness_v2/neural_network.py'
+ outputting to 'adversarial_robustness_v3/neural_network.py'
 --------------------------------------------------------------------------------
 
 32:9: INFO: `name` passed to `name_scope`. Because you may be re-entering an existing scope, it is not safe to convert automatically,  the v2 name_scope does not support re-entering scopes by name.
@@ -126,7 +126,7 @@ Processing file 'adversarial_robustness/neural_network.py'
 
 --------------------------------------------------------------------------------
 Processing file 'adversarial_robustness/utils.py'
- outputting to 'adversarial_robustness_v2/utils.py'
+ outputting to 'adversarial_robustness_v3/utils.py'
 --------------------------------------------------------------------------------
 
 
@@ -134,7 +134,7 @@ Processing file 'adversarial_robustness/utils.py'
 
 --------------------------------------------------------------------------------
 Processing file 'adversarial_robustness/datasets/mnist.py'
- outputting to 'adversarial_robustness_v2/datasets/mnist.py'
+ outputting to 'adversarial_robustness_v3/datasets/mnist.py'
 --------------------------------------------------------------------------------
 
 
@@ -142,7 +142,7 @@ Processing file 'adversarial_robustness/datasets/mnist.py'
 
 --------------------------------------------------------------------------------
 Processing file 'adversarial_robustness/datasets/__init__.py'
- outputting to 'adversarial_robustness_v2/datasets/__init__.py'
+ outputting to 'adversarial_robustness_v3/datasets/__init__.py'
 --------------------------------------------------------------------------------
 
 
@@ -150,7 +150,7 @@ Processing file 'adversarial_robustness/datasets/__init__.py'
 
 --------------------------------------------------------------------------------
 Processing file 'adversarial_robustness/datasets/svhn.py'
- outputting to 'adversarial_robustness_v2/datasets/svhn.py'
+ outputting to 'adversarial_robustness_v3/datasets/svhn.py'
 --------------------------------------------------------------------------------
 
 
@@ -158,7 +158,7 @@ Processing file 'adversarial_robustness/datasets/svhn.py'
 
 --------------------------------------------------------------------------------
 Processing file 'adversarial_robustness/datasets/notmnist.py'
- outputting to 'adversarial_robustness_v2/datasets/notmnist.py'
+ outputting to 'adversarial_robustness_v3/datasets/notmnist.py'
 --------------------------------------------------------------------------------
 
 
