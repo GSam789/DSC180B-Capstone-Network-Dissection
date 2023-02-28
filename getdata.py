@@ -3,31 +3,31 @@ import os
 from torch.utils.data import DataLoader
 from torchvision import datasets
 from torchvision.transforms import ToTensor
+import torchvision.transforms as transforms
 
-def get_data(batch_size=64):
-    # CIFAR10 training dataset.
-    dataset_train = datasets.CIFAR10(
-        root='data',
-        train=True,
-        download=True,
-        transform=ToTensor(),
-    )
-    # CIFAR10 validation dataset.
-    dataset_valid = datasets.CIFAR10(
-        root='data',
-        train=False,
-        download=True,
-        transform=ToTensor(),
-    )
-    # Create data loaders.
-    train_loader = DataLoader(
-        dataset_train, 
-        batch_size=batch_size,
-        shuffle=True
-    )
-    valid_loader = DataLoader(
-        dataset_valid, 
-        batch_size=batch_size,
-        shuffle=False
-    )
-    return train_loader, valid_loader
+
+def get_data(batch_size=32):
+    
+    transform_train = transforms.Compose([
+        transforms.RandomCrop(32, padding=4),
+        transforms.RandomHorizontalFlip(),
+        transforms.ToTensor(),
+        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+    ])
+
+    transform_test = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+    ])
+
+    trainset = datasets.CIFAR10(
+        root='./data', train=True, download=True, transform=transform_train)
+    trainloader = DataLoader(
+        trainset, batch_size=batch_size, shuffle=True, num_workers=2)
+
+    testset = datasets.CIFAR10(
+        root='./data', train=False, download=True, transform=transform_test)
+    testloader = DataLoader(
+        testset, batch_size=batch_size, shuffle=False, num_workers=2)
+    
+    return trainloader, testloader

@@ -1,10 +1,11 @@
 import torch
 from tqdm import tqdm
+import matplotlib.pyplot as plt
+import numpy as np
 
 # Training function.
 def train(model, trainloader, optimizer, criterion, device):
     model.train()
-    print('Training')
     train_running_loss = 0.0
     train_running_correct = 0
     counter = 0
@@ -30,13 +31,12 @@ def train(model, trainloader, optimizer, criterion, device):
     # Loss and accuracy for the complete epoch.
     epoch_loss = train_running_loss / counter
     # epoch_acc = 100. * (train_running_correct / len(trainloader.dataset))
-    epoch_acc = 100. * (train_running_correct / len(trainloader.dataset))
+    epoch_acc =  (train_running_correct / len(trainloader.dataset))
     return epoch_loss, epoch_acc
 
 # Validation function.
 def validate(model, testloader, criterion, device):
     model.eval()
-    print('Validation')
     valid_running_loss = 0.0
     valid_running_correct = 0
     counter = 0
@@ -58,6 +58,6 @@ def validate(model, testloader, criterion, device):
         
     # Loss and accuracy for the complete epoch.
     epoch_loss = valid_running_loss / counter
-    epoch_acc = 100. * (valid_running_correct / len(testloader.dataset))
+    epoch_acc = (valid_running_correct / len(testloader.dataset))
     return epoch_loss, epoch_acc
 
