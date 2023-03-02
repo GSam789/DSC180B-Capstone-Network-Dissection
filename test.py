@@ -9,10 +9,10 @@ from utils import *
 ############################################ Load Model to Validate #############################################
 
 # Unmodified ResNet18
-filename = "models/resnet18_cifar10"
+# filename = "models/resnet18_cifar10"
 
 # ResNet18 with Dropout
-# filename = "models/resnet18_cifar10_dropout0.2"
+filename = "models/cifar10/resnet/resnet18_cifar10_dropout0.2"
 # filename = "models/resnet18_cifar10_dropout0.5"
 
 # ResNet18 with FocusedDropout
@@ -29,6 +29,7 @@ model = pickle.load(open(filename, "rb"))
 test_data = torch.load("test_data.pt")
 loss = nn.CrossEntropyLoss()
 
+# _, valid_loader = get_data(128)
 valid_loader = DataLoader(
         test_data, 
         batch_size=16,

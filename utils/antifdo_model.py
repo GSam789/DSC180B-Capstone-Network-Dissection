@@ -109,8 +109,8 @@ class ResNet(nn.Module):
         out = self.linear(out)
         return out
 
-def ResNet18(par_rate = 0.1):
-    return ResNet(BasicBlock, [2, 2, 2, 2], par_rate = par_rate)
+def ResNet18(num_classes = 10, par_rate = 0.1):
+    return ResNet(BasicBlock, [2, 2, 2, 2], num_classes = num_classes, par_rate = par_rate)
 
 
 def ResNet34():

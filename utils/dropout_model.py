@@ -109,8 +109,8 @@ class ResNet(nn.Module):
         return out
 
 
-def ResNet18(p = 0.2):
-    return ResNet(BasicBlock, [2, 2, 2, 2], p = p)
+def ResNet18(num_classes = 10, p = 0.2):
+    return ResNet(BasicBlock, [2, 2, 2, 2], num_classes = num_classes, p = p)
 
 
 def ResNet34():
