@@ -16,6 +16,9 @@ class VGG(nn.Module):
         super(VGG, self).__init__()
         self.features = self._make_layers(cfg[vgg_name])
         self.classifier = nn.Linear(512, num_classes)
+#         self.classifier = nn.Sequential(nn.Linear(512, 4096, bias = True), nn.ReLU(inplace = True), nn.Dropout(p=0.2),
+#                                         nn.Linear(4096, 4096, bias = True), nn.ReLU(inplace = True), nn.Dropout(p=0.2),
+#                                         nn.Linear(4096, num_classes, bias = True))
 
     def forward(self, x):
         out = self.features(x)

@@ -12,10 +12,14 @@ cfg = {
 
 
 class VGG(nn.Module):
-    def __init__(self, vgg_name, num_classes = 100):
+    def __init__(self, vgg_name, num_classes = 100, par_rate = 0.1):
         super(VGG, self).__init__()
+        self.par_rate = par_rate
         self.features = self._make_layers(cfg[vgg_name])
         self.classifier = nn.Linear(512, num_classes)
+#         self.classifier = nn.Sequential(nn.Linear(32768, 4096, bias = True), nn.ReLU(inplace = True), FocusedDropout(par_rate = 0.1),
+#                                         nn.Linear(4096, 4096, bias = True), nn.ReLU(inplace = True), FocusedDropout(par_rate = 0.1),
+#                                         nn.Linear(4096, num_classes, bias = True))
 
     def forward(self, x):
         out = self.features(x)
@@ -33,7 +37,7 @@ class VGG(nn.Module):
                 layers += [nn.Conv2d(in_channels, x, kernel_size=3, padding=1),
                            nn.BatchNorm2d(x),
                            nn.ReLU(inplace=True),
-                           FocusedDropout(par_rate = 0.1)]
+                           FocusedDropout(par_rate = self.par_rate)]
                 in_channels = x
         layers += [nn.AvgPool2d(kernel_size=1, stride=1)]
         return nn.Sequential(*layers)

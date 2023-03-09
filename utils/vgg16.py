@@ -16,6 +16,9 @@ class VGG(nn.Module):
         super(VGG, self).__init__()
         self.features = self._make_layers(cfg[vgg_name])
         self.classifier = nn.Linear(512, num_classes)
+#         self.classifier = nn.Sequential(nn.Linear(32768, 4096, bias = True), nn.ReLU(inplace = True),
+#                                         nn.Linear(4096, 4096, bias = True), nn.ReLU(inplace = True),
+#                                         nn.Linear(4096, num_classes, bias = True))
 
     def forward(self, x):
         out = self.features(x)
@@ -39,8 +42,8 @@ class VGG(nn.Module):
 
 
 def test():
-    net = VGG('VGG11')
-    x = torch.randn(2,3,32,32)
+    net = VGG('VGG16')
+    x = torch.randn(2,3,256,256)
     y = net(x)
     print(y.size())
 
