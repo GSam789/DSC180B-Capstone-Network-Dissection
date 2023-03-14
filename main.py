@@ -35,21 +35,21 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 # model_name = "resnet18_cifar100_focuseddropout0.05sgd"
 
 ############# VGG16
-model = VGG('VGG16', num_classes = 100)
-model_name = "vgg16_cifar100"
+# model = VGG('VGG16', num_classes = 100)
+# model_name = "vgg16_cifar100"
 
 # ############# VGG16 with Dropout
 # model = vd.VGG('VGG16', num_classes = 100)
 # model_name = "cifar100/vgg/vgg16_cifar100_dropout0.2"
 
 # ############# VGG16 with FocusedDropout
-# model = vfd.VGG('VGG16', num_classes = 100)
-# model_name = "cifar100/vgg/vgg16_cifar100_focuseddropout0.1"
+model = vfd.VGG('VGG16', num_classes = 100)
+model_name = "cifar100/vgg/vgg16_cifar100_focuseddropout0.1"
 
 filename = "models/" + model_name + '.pth'
 # model = pickle.load(open(filename, "rb"))
 ########################################Train & Validate#####################################################
-epochs = 150
+epochs = 300
 train_loader, valid_loader = get_data(batch_size=128)
 
 model.to(device)
