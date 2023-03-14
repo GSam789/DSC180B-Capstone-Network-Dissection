@@ -4,39 +4,37 @@ import pickle
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
-from utils import *
+from utils import vgg16
+from utils import vgg16_focuseddropout
 
 ############################################ Load Model to Validate #############################################
 
-# Unmodified ResNet18
-# filename = "models/resnet18_cifar10"
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-# ResNet18 with Dropout
-filename = "models/cifar10/resnet/resnet18_cifar10_dropout0.2"
-# filename = "models/resnet18_cifar10_dropout0.5"
+# Baseline VGG16
+filename = "models/vgg16_cifar100.pth"
+model = vgg16.VGG("VGG16")
 
-# ResNet18 with FocusedDropout
-# filename = "models/resnet18_cifar10_focuseddropout0.01sgd"
-# filename = "models/resnet18_cifar10_focuseddropout0.05sgd"
-# filename = "models/resnet18_cifar10_focuseddropout0.1sgd"
+# VGG16 with FocusedDropout
+# filename = "models/vgg16_cifar100_focuseddropout0.1.pth"
+# model = vgg16_focuseddropout.VGG("VGG16")
 
-# ResNet18 with AntiFocusedDropout
-# filename = "models/resnet18_cifar10_antifocuseddropout0.1sgd"
 
-model = pickle.load(open(filename, "rb"))
+model.load_state_dict(torch.load(filename))
+model.to(device)
 
-# Load Test Data (First 100 CIFAR10 validation data)
+# Load Test Data (First 100 CIFAR100 validation data)
 test_data = torch.load("test_data.pt")
 loss = nn.CrossEntropyLoss()
+loss.to(device)
 
-# _, valid_loader = get_data(128)
 valid_loader = DataLoader(
         test_data, 
         batch_size=16,
         shuffle=False)
 
 # Test model accuracy
-model_name = filename.split("/")[1]
+model_name = filename.split("/")[1][:-4]
 print(f"Model: {model_name}")
-val_loss, val_acc = validate(model, valid_loader, loss, 'cuda')
+val_loss, val_acc = validate(model, valid_loader, loss, device)
 print(f"Validation loss: {val_loss}, Validation accuracy: {val_acc}")
