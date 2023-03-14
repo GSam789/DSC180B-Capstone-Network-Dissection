@@ -3,7 +3,6 @@ from train import train, validate
 # from utils import resnet18 as rn
 # from utils import dropout_model as dm
 # from utils import focuseddropout_model as fm
-# from utils import antifdo_model as afm
 from utils.vgg16 import VGG
 from utils import vgg16_dropout as vd
 from utils import vgg16_focuseddropout as vfd
@@ -24,15 +23,9 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 # model = dm.ResNet18(num_classes = 100, p = 0.2) #0.2 Dropout rate
 # model_name = "resnet18_cifar100_dropout0.2"
 
-# model = dm.ResNet18(num_classes = 100, p = 0.5) #0.5 Dropout rate
-# model_name = "resnet18_cifar100_dropout0.5"
-
 ############# ResNet with FocusedDropout
-# model = fm.ResNet18(num_classes = 100, par_rate = 0.01) #0.01 FocusedDropout participation rate
-# model_name = "resnet18_cifar100_focuseddropout0.01sgd"
-
-# model = fm.ResNet18(num_classes = 100, par_rate = 0.05) #0.05 FocusedDropout participation rate
-# model_name = "resnet18_cifar100_focuseddropout0.05sgd"
+# model = fm.ResNet18(num_classes = 100, par_rate = 0.1) #0.1 FocusedDropout participation rate
+# model_name = "resnet18_cifar100_focuseddropout0.1sgd"
 
 ############# VGG16
 # model = VGG('VGG16', num_classes = 100)
@@ -47,9 +40,8 @@ model = vfd.VGG('VGG16', num_classes = 100)
 model_name = "cifar100/vgg/vgg16_cifar100_focuseddropout0.1"
 
 filename = "models/" + model_name + '.pth'
-# model = pickle.load(open(filename, "rb"))
 ########################################Train & Validate#####################################################
-epochs = 300
+epochs = 150
 train_loader, valid_loader = get_data(batch_size=128)
 
 model.to(device)
@@ -83,6 +75,4 @@ plot(train_losses, train_accs, val_losses, val_accs, model_name)
 
 # Save Model
 torch.save(model.state_dict(), filename)
-# torch.save(model, filename)
-# pickle.dump(model, open(filename, "wb"))
 print(f"Model saved on {filename}")
