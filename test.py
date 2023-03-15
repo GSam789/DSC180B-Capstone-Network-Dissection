@@ -33,8 +33,8 @@ def validate(model, testloader, criterion, device):
     epoch_acc = (valid_running_correct / len(testloader.dataset))
     return epoch_loss, epoch_acc
 
-def test(filename, model):
-    model.load_state_dict(torch.load(filename))
+def test(filename, model, device):
+    model.load_state_dict(torch.load(filename, map_location = device))
     model.to(device)
 
     # Load Test Data (First 100 CIFAR100 validation data)
@@ -59,4 +59,4 @@ loss = nn.CrossEntropyLoss()
 loss.to(device)
 
 for filename, model in zip(filenames, models):
-    test(filename, model)
+    test(filename, model, device)
