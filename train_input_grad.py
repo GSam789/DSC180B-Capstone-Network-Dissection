@@ -1,11 +1,5 @@
 import utils.vgg16 as vgg16
-import random
-import time, datetime
-import os, shutil
-import yaml
-import ast, bisect
-import csv
-
+import time
 import numpy as np
 import torch
 import torch.nn as nn
