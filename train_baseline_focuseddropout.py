@@ -2,7 +2,6 @@ from dataloader import get_data
 from utils.vgg16 import VGG
 from utils import vgg16_dropout as vd
 from utils import vgg16_focuseddropout as vfd
-import pickle
 import torch
 import torch.nn as nn
 import torch.optim as optim
