@@ -1,5 +1,4 @@
-import numpy
-import vgg16
+import utils.vgg16 as vgg16
 import random
 import time, datetime
 import os, shutil
