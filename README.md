@@ -15,18 +15,19 @@ We implemented FocusedDropout and Input Gradient Regularization separately on VG
 Places365 would take 50 days.
 
 In this Github repository, you will find the following folders and files:
-Folders:
-- models: Contains all the state dictionaries of the trained models
-- utils: Contains all the model skeletons and FocusedDropout implementation
 
-Files:
-- dataloader.py: Loads the CIFAR-100 dataset into a DataLoader
-- plotting.py: Plots the resulting accuracies and losses over epochs
-- test_data.pt: The first 100 test data points of CIFAR-100
-- test.py: Runs our 3 VGG16 on CIFAR-100 models (Baseline, VGG16 with FocusedDropout, VGG16 with Input Gradient Regularization) on test_data.pt 
-- train_baseline_focuseddropout.py: When run, trains either baseline model (Plain VGG16) or VGG16 with FocusedDropout from scratch based on selected model in file and 
+- Folders:
+  - models: Contains all the state dictionaries of the trained models
+  - utils: Contains all the model skeletons and FocusedDropout implementation
+
+- Files:
+  - dataloader.py: Loads the CIFAR-100 dataset into a DataLoader
+  - plotting.py: Plots the resulting accuracies and losses over epochs
+  - test_data.pt: The first 100 test data points of CIFAR-100
+  - test.py: Runs our 3 VGG16 on CIFAR-100 models (Baseline, VGG16 with FocusedDropout, VGG16 with Input Gradient Regularization) on test_data.pt 
+  - train_baseline_focuseddropout.py: When run, trains either baseline model (Plain VGG16) or VGG16 with FocusedDropout from scratch based on selected model in file and 
 saves final model's state dictionary into the models/ folder
-- train_input_grad.py: When run, trains VGG16 with Input Gradient Regularization and saves final model's state dictionary into the models/ folder
+  - train_input_grad.py: When run, trains VGG16 with Input Gradient Regularization and saves final model's state dictionary into the models/ folder
 
 ## To run our code:
 Simply run ```python3 test.py``` to find the accuracies of our 3 trained VGG16 models on the first 100 test data points of CIFAR-100.
