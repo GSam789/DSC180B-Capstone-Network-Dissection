@@ -18,6 +18,17 @@ import torchnet as tnt
 from dataloader import get_data
 
 
+
+## CONDITIONS ##
+epochs = 150
+norm = 'L2'
+lr = 0.01
+momentum = 0.9
+decay = 0.0005
+penalty = 0.1
+fd_order = 'O2'
+## --------- ##
+
 def scheduler(optimizer,lr_schedule):
     """Return a hyperparmeter scheduler for the optimizer"""
     lscheduler = LambdaLR(optimizer, lr_lambda = lr_schedule)
@@ -206,14 +217,6 @@ def main():
         if fail_count < 1:
             raise ValueError('Percent error has not decreased in %d epochs'%fail_max)
 
-## CONDITIONS ##
-epochs = 150
-norm = 'L2'
-lr = 0.01
-momentum = 0.9
-decay = 0.0005
-penalty = 0.1
-fd_order = 'O2'
 
 ## LOAD DATA AND MODEL ##
 train_loader, test_loader = get_data()
